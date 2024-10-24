@@ -1,5 +1,11 @@
 <h2><%= @category.name %></h2>
 <p><%= link_to "Edit", edit_category_path(@category) %></p>
+<p><%= link_to "Delete", category_path(@category), 
+    data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        } %>
+</p>
 
 <div>
     <%= @category.details %>

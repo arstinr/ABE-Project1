@@ -1,6 +1,4 @@
 <div class="task">
   <h3><%= task.name %></h3>
-  <p><%= task.details %></p>
-  <p>Status: <%= task.status ? "Complete" : "Incomplete" %></p>
-  <p>Due date: <%= task.due_date.strftime("%B %d, %Y") %></p>
+    <p><%= link_to "View Details", category_task_path(task.category, task) %></p>
 </div>

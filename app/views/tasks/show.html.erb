@@ -1,0 +1,13 @@
+<h2><%= @task.name %></h2>
+<p><%= link_to "Go Back", category_path(@task.category) %></p>
+<p><%= link_to "Edit", edit_category_task_path(@task) %></p>
+<p><%= link_to "Delete", category_task_path(@task), 
+    data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        } %>
+</p>
+
+<p><%= @task.details %></p>
+<p>Status: <%= @task.status ? "Complete" : "Incomplete" %></p>
+<p>Due date: <%= @task.due_date.strftime("%B %d, %Y") %></p>

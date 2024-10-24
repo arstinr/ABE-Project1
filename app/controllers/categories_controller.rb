@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
     def update
         @category = Category.find(params[:id])
 
-        if @category.update(article_params)
+        if @category.update(category_params)
             redirect_to @category, notice: "Category updated!"
         else
             render :edit, status: unprocessable_entity

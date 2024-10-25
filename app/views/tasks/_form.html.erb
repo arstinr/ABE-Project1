@@ -1,3 +1,28 @@
-<%= form_with model: task, class: "" do |form| %>
+<%= form_with model: [@category, task], class: "task-form" do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </div>
+
+  <!-- Category Dropdown -->
+  <div class="form-group">
+    <%= form.label :category_id, "Category" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, { selected: task.category_id || Category.first.id }, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, Task::VALID_STATUSES, { selected: task.status || 'to do' }, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
 
 <% end %>

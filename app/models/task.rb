@@ -3,7 +3,10 @@ class Task < ApplicationRecord
 
   VALID_STATUSES = ['To-do', 'In Progress', 'Completed', 'On Hold']
 
+  validates :name, presence: true
+  validates :details, presence: true
   validates :status, inclusion: { in: VALID_STATUSES }
+
 
   def duetoday?
     due_date == Date.today

@@ -9,8 +9,19 @@
 </div>
 
 <div>
-  Filter here
-  List all tasks here
+  <% tasks_due_today = Task.where(due_date: Date.today.all_day) %>
+  <p><%= Date.today.strftime("%B %d, %Y") %></p>
+
+  <ul>
+    <% tasks_due_today.each do |task| %>
+      <li>
+        <div>
+          <%= task.name %>
+          <%= task.category.name %>
+        </div>
+      </li>
+  </ul>
+  <% end %>
 </div>
 
 <div id="categories-container">

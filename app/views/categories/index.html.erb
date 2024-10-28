@@ -18,6 +18,7 @@
         <div>
           <%= task.name %>
           <%= task.category.name %>
+          <%= link_to "details", category_task_path(task.category, task) %>
         </div>
       </li>
   </ul>

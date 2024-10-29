@@ -1,32 +1,30 @@
 <%= form_with model: [@category, task], class: "task-form" do |form| %>
-
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :details %>
-    <%= form.text_area :details %>
-  </div>
-
-  <div>
-    <%= form.label :due_date %>
-    <%= form.date_field :due_date, min: Date.today, placeholder: "Select a date" %>
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :category_id, "Category" %>
+    <%= form.label :details, class: "form-label" %>
+    <%= form.text_area :details, class: "form-textarea" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :due_date, class: "form-label" %>
+    <%= form.date_field :due_date, min: Date.today, placeholder: "Select a date", class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :category_id, "Category", class: "form-label" %>
     <%= form.collection_select :category_id, Category.all, :id, :name, { selected: task.category_id || Category.first.id }, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :status %>
+    <%= form.label :status, class: "form-label" %>
     <%= form.select :status, Task::VALID_STATUSES, { selected: task.status || 'to do' }, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Save", class: "form-submit" %>
   </div>
-
 <% end %>

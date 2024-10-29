@@ -1,4 +1,4 @@
 <div class="task">
-  <h3><%= task.name %></h3>
-    <p><%= link_to "View Details", category_task_path(task.category, task) %></p>
+  <h3 class="task-name"><%= task.name %></h3>
+  <p><%= link_to "View Details", category_task_path(task.category, task), class: "action-link" %></p>
 </div>

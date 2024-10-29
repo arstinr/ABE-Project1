@@ -1,12 +1,17 @@
-<h2><%= @task.name %></h2>
-<p><%= link_to "Go Back", category_path(@task.category) %></p>
-<p><%= link_to "Edit", edit_category_task_path(@task) %></p>
-<p><%= link_to "Delete", category_task_path(@task), 
-    data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-        } %>
-</p>
+<div class="task-header">
+    <h2 class="task-title"><%= @task.name %></h2>
+    <div class="task-actions">
+        <%= link_to "Go Back", category_path(@task.category), class: "action-link" %>
+        <%= link_to "Edit", edit_category_task_path(@task.category, @task), class: "action-link" %>
+        <%= link_to "Delete", category_task_path(@task.category, @task), 
+            data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+            }, class: "action-link" %>
+    </div>
+</div>
 
-<p><%= @task.details %></p>
-<p>Status: <%= @task.status %></p>
+<div class="task-details">
+    <p><%= @task.details %></p>
+    <p>Status: <%= @task.status %></p>
+</div>

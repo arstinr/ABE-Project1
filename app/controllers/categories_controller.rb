@@ -1,11 +1,10 @@
 class CategoriesController < ApplicationController
-
+    before_action :set_id, only: [:show, :update, :update, :destroy]
     def index
         @categories = current_user.categories
     end
 
     def show
-        @category =current_user.categories.find(params[:id])
     end
 
     def new
@@ -23,11 +22,9 @@ class CategoriesController < ApplicationController
     end
 
     def edit
-        @category = current_user.categories.find(params[:id])
     end
 
     def update
-        @category = current_user.categories.find(params[:id])
 
         if @category.update(category_params)
             redirect_to @category, notice: "Category updated!"
@@ -37,7 +34,6 @@ class CategoriesController < ApplicationController
     end
 
     def destroy
-        @category = current_user.categories.find(params[:id])
         @category.destroy
 
         redirect_to categories_path
@@ -46,5 +42,9 @@ class CategoriesController < ApplicationController
     private
     def category_params
         params.require(:category).permit(:name, :details)
+    end
+
+    def set_id
+        @category = current_user.categories.find(params[:id])
     end
 end

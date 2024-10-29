@@ -15,10 +15,11 @@
 
 
 <section class="tasks-due-today">
-  <% tasks_due_today = Task.where(due_date: Date.today.all_day) %>
+
+  
   <p><%= Date.today.strftime("%B %d, %Y") %></p>
   <ul>
-    <% tasks_due_today.each do |task| %>
+    <% Task.where(due_date: Date.today.all_day).each do |task| %>
       <li>
         <div class="task-item">
           <span><%= task.name %></span>

@@ -1,10 +1,9 @@
-<!-- Header Section -->
 <header>
   <h2>Welcome, <%= current_user.email %></h2>
   <p>Organize your tasks and boost your productivity!</p>
 </header>
 
-<!-- Stats Section -->
+
 <section class="stats">
   <h3>Quick Stats</h3>
   <div class="stats-grid">
@@ -14,7 +13,7 @@
   </div>
 </section>
 
-<!-- Tasks Due Today Section -->
+
 <section class="tasks-due-today">
   <% tasks_due_today = Task.where(due_date: Date.today.all_day) %>
   <p><%= Date.today.strftime("%B %d, %Y") %></p>
@@ -31,15 +30,17 @@
   </ul>
 </section>
 
-<!-- Categories Section -->
+
 <section id="categories-container">
   <div>
     <h3>Categories</h3>
-    <p><%= link_to "Create new Category", new_category_path %></p>
+    <p><%= link_to "Create new Category", new_category_path, class: "action-link" %></p>
   </div>
-  <% @categories.each do |category| %>
-    <div class="category-item">
-      <%= link_to category.name, category %>
-    </div>
-  <% end %>
+  <div>
+    <% @categories.each do |category| %>
+      <div class="category-item">
+        <%= link_to category.name, category %>
+      </div>
+    <% end %>
+  </div>
 </section>

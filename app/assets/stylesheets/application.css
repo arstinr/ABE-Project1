@@ -36,6 +36,7 @@ header {
 header h1 {
   font-family: 'Outfit', sans-serif;
   background: linear-gradient(120deg, #4c1d95 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -209,6 +210,7 @@ header h1 {
   margin-bottom: 8px;
   font-weight: 600;
   background: linear-gradient(120deg, #4c1d95 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
